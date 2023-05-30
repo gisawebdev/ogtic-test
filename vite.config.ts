@@ -9,12 +9,6 @@ export default defineConfig({
 			name: 'eslint-plugin',
 			enforce: 'pre',
 			apply: 'serve',
-			//ts=ignore
-			...require('eslint-webpack-plugin')({
-				context: __dirname,
-				extensions: ['js', 'jsx', 'ts', 'tsx'],
-				files: './src',
-			}),
 		},
 	],
 });

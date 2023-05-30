@@ -1,15 +1,11 @@
-
-import './App.css'
-
 function App() {
-
-  return (
-    <>
-      <div>
-        <h1 className='text-red-400'>hola</h1>
-      </div>
-    </>
-  )
+	return (
+		<>
+			<h1 className="py-10 text-2xl font-bold ">
+				API Territorial Republica Dominicana
+			</h1>
+		</>
+	);
 }
 
-export default App
+export default App;
