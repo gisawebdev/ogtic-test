@@ -10,5 +10,5 @@ html {
 }
 
 body {
-	@apply grid mx-auto place-items-center;
+	@apply  mx-5 md:mx-56;
 }

@@ -2,11 +2,15 @@
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		extend: {},
+		extend: {
+			animation: {
+				'spin-slow': 'spin 3s linear infinite',
+			},
+		},
 
 		fontFamily: {
-			sans: ['system-ui', 'sans-serif']
+			sans: ['system-ui', 'sans-serif'],
 		},
 	},
-	plugins: [],
+	plugins: [require('tailwindcss-animated')],
 };
