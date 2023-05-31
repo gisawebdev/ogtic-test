@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-export const useFetch = <T extends any>(fetcher : () => Promise<T> ) => {
+export const useFetch = <T extends any>(fetcher: () => Promise<T>, deps? : object) => {
 	const [data, setData] = useState<T>();
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -12,10 +12,10 @@ export const useFetch = <T extends any>(fetcher : () => Promise<T> ) => {
 
 	useEffect(() => {
 		getData();
-	}, []);
+	}, [deps]);
 
 	return {
-		 data,
+		data,
 		isLoading,
 	};
 };

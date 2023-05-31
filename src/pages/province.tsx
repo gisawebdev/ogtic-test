@@ -5,20 +5,24 @@ import {Tags} from '../components/Tags';
 import {getMunicipalities} from '../helpers/getMunicipalities';
 import {getDistricts} from '../helpers/getDistricts';
 import Loading from '../components/Loading';
+import {ListElements} from '../components/ListElements';
 
 export const ProvincePage = () => {
-	const {province} = useParams();
+	const {province, country} = useParams();
 
 	if (!province) return <>No hay provincia</>;
 
 	const {data, isLoading} = useFetch(() => getProvinceShow(province));
-	const {data: dataMunicipalities} = useFetch(() =>
-		getMunicipalities(data?.code?.toString()),
-	);
-	const {data: dataDistrics} = useFetch(() =>
-		getDistricts(data?.code?.toString()),
+
+	const {data: dataMunicipalities} = useFetch(
+		async () => (data?.code ? getMunicipalities(data?.code?.toString()) : []),
+		data,
 	);
 
+	const {data: dataDistrics} = useFetch(
+		async () => (data?.code ? getDistricts(data?.code?.toString()) : []),
+		data,
+	);
 
 	return (
 		<section>
@@ -36,7 +40,12 @@ export const ProvincePage = () => {
 						<ol className="grid md:grid-cols-2">
 							{dataMunicipalities?.map(({id, nombre}) => (
 								<li key={id}>
-									<Link to={`/municipios/${id}`}>{nombre}</Link>
+									<Link
+										className="hover:underline hover:text-purple-600 hover:decoration-wavy"
+										to={`/${country}/${province}/${id}`}
+									>
+										{nombre}
+									</Link>
 								</li>
 							))}
 						</ol>
@@ -47,7 +56,12 @@ export const ProvincePage = () => {
 						<ol className="grid md:grid-cols-2">
 							{dataDistrics?.map(({id, nombre}) => (
 								<li key={id}>
-									<Link to={`/distritos/${id}`}>{nombre}</Link>
+									<Link
+										className="hover:underline hover:text-purple-600 hover:decoration-wavy"
+										to={`/${country}/${province}/${id}`}
+									>
+										{nombre}
+									</Link>
 								</li>
 							))}
 						</ol>

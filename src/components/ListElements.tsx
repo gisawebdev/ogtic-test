@@ -14,7 +14,12 @@ export const ListElements = ({title, element, href}: Props) => {
 			<ol className="grid md:grid-cols-2">
 				{element?.map(({id, nombre}) => (
 					<li key={id}>
-						<Link to={`${href}/${id}`}>{nombre}</Link>
+						<Link
+							className="hover:underline hover:text-purple-600 hover:decoration-wavy"
+							to={nombre === 'No Definido' ? '#' : `${href}/${id}`}
+						>
+							{nombre}
+						</Link>
 					</li>
 				))}
 			</ol>

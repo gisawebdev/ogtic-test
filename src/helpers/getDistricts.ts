@@ -1,6 +1,6 @@
 import {District} from '../types';
 
-export const getDistricts = async (provinceCode: string | undefined) => {
+export const getDistricts = async (provinceCode: string) => {
 	try {
 		const url = `https://api-territorial.apps.madlab.com.do/api/distritos?province_code=${provinceCode}`;
 		const resp = await fetch(url);

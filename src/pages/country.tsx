@@ -16,17 +16,6 @@ export const CountryPage = () => {
 			<h2 className="font-semibold">{data?.nombre}</h2>
 			<Tags id={data?.id} code={data?.code} isoCode={data?.iso_code} />
 
-			{/* <div className="p-5 my-5 transition-shadow duration-300 ease-in-out border shadow-sm md:grid-cols-3 rounded-3xl drop-shadow-md shadow-slate-400 hover:shadow-slate-700">
-				<h3 className="font-semibold">Provincias</h3>
-				<ol className="grid grid-cols-2">
-					{data?.provincias?.map(({id, nombre}) => (
-						<li key={id}>
-							<Link to={`/provincias/${id}`}>{nombre}</Link>
-						</li>
-					))}
-				</ol>
-			</div> */}
-
 			{isLoading ? (
 				<div className="mt-10">
 					<Loading />
@@ -35,7 +24,7 @@ export const CountryPage = () => {
 				<ListElements
 					title="Provincias"
 					element={data?.provincias}
-					href={`/provincias`}
+					href={`/${country}`}
 				/>
 			)}
 		</section>

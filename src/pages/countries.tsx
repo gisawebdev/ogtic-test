@@ -14,7 +14,12 @@ export const CountriesPage = () => {
 				) : (
 					data?.map(({id, nombre}) => (
 						<li className="text-xs md:text-sm animate-fade" key={id}>
-							<Link to={`/${id}`}>{nombre}</Link>
+							<Link
+								className="hover:underline hover:text-purple-600 hover:decoration-wavy"
+								to={`/${id}`}
+							>
+								{nombre}
+							</Link>
 						</li>
 					))
 				)}
