@@ -1,8 +1,3 @@
-export type FetchResult = {
-	id: number;
-	nombre: string;
-};
-
 export type Province = {
 	id: number;
 	code: number;
@@ -22,12 +17,25 @@ export type Municipality = {
 	nombre: string;
 	province_code: number;
 	code: number;
-	provincia?: Province[];
+	provincias?: Province[];
+	provincia?: {
+		id: number;
+		code: number;
+		country_code: number;
+		nombre: string;
+	};
 };
 
 export type District = {
 	id: number;
 	nombre: string;
+	code: number;
 	province_code: string;
-	provincia?: Province[];
+	provincias?: Province[];
+	provincia?: {
+		id: number;
+		code: number;
+		country_code: number;
+		nombre: string;
+	};
 };

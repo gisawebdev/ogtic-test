@@ -14,7 +14,7 @@ export const DistrictPage = () => {
 	return (
 		<section>
 			<h2 className="font-semibold">{data?.nombre}</h2>
-			<Tags id={data?.id} countryCode={data?.province_code} code={data?.code} />
+			<Tags id={data?.id} countryCode={data?.province_code.toString()} code={data?.code} />
 			{isLoading ? (
 				<div className="mt-10">
 					<Loading />

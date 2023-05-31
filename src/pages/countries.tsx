@@ -2,6 +2,7 @@ import Loading from '../components/Loading';
 import {getCountries} from '../helpers/getCountries';
 import {useFetch} from '../hooks/useFetch';
 import {Link} from 'react-router-dom';
+
 export const CountriesPage = () => {
 	const {data, isLoading} = useFetch(getCountries);
 

@@ -1,7 +1,7 @@
 interface Props {
 	id: number | undefined;
 	code?: number | undefined;
-	countryCode?: number | undefined;
+	countryCode?: string | number | undefined;
 	isoCode?: string | undefined;
 
 }

@@ -5,7 +5,6 @@ import {Tags} from '../components/Tags';
 import {getMunicipalities} from '../helpers/getMunicipalities';
 import {getDistricts} from '../helpers/getDistricts';
 import Loading from '../components/Loading';
-import {ListElements} from '../components/ListElements';
 
 export const ProvincePage = () => {
 	const {province, country} = useParams();
@@ -35,7 +34,7 @@ export const ProvincePage = () => {
 				</div>
 			) : (
 				<div className="flex flex-col gap-1 mt-10 md:gap-10 md:flex-row">
-					<div className="p-5 my-5 transition-shadow duration-300 ease-in-out border shadow-sm md:grid-cols-3 rounded-3xl drop-shadow-md shadow-slate-400 hover:shadow-slate-700">
+					<div className="w-full p-5 my-5 transition-shadow duration-300 ease-in-out border shadow-sm md:grid-cols-3 rounded-3xl drop-shadow-md shadow-slate-400 hover:shadow-slate-700">
 						<h3 className="font-semibold">Municipios</h3>
 						<ol className="grid md:grid-cols-2">
 							{dataMunicipalities?.map(({id, nombre}) => (
@@ -51,7 +50,7 @@ export const ProvincePage = () => {
 						</ol>
 					</div>
 
-					<div className="p-5 my-5 transition-shadow duration-300 ease-in-out border shadow-sm md:grid-cols-3 rounded-3xl drop-shadow-md shadow-slate-400 hover:shadow-slate-700">
+					<div className="w-full p-5 my-5 transition-shadow duration-300 ease-in-out border shadow-sm md:grid-cols-3 rounded-3xl drop-shadow-md shadow-slate-400 hover:shadow-slate-700">
 						<h3 className="font-semibold">Distritos</h3>
 						<ol className="grid md:grid-cols-2">
 							{dataDistrics?.map(({id, nombre}) => (
