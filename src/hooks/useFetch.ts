@@ -1,22 +1,21 @@
 import {useEffect, useState} from 'react';
-import {FetchResult, PromiseFunction} from '../types';
 
-export const useFetch = (getFunction: PromiseFunction<[]>) => {
-	const [array, setArray] = useState<FetchResult[]>([]);
+export const useFetch = <T extends any>(fetcher : () => Promise<T> ) => {
+	const [data, setData] = useState<T>();
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 
-	const getArray = async () => {
-		const result = await getFunction();
-		setArray(result);
+	const getData = async () => {
+		const result = await fetcher();
+		setData(result);
 		setIsLoading(false);
 	};
 
 	useEffect(() => {
-		getArray();
+		getData();
 	}, []);
 
 	return {
-		array,
+		 data,
 		isLoading,
 	};
 };

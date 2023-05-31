@@ -1,6 +1,6 @@
-import {CountriesSection} from './components/CountriesSection';
-import { ProvincesSection } from './components/ProvincesSection';
-
+import {Route, Routes} from 'react-router-dom';
+import {CountriesPage} from './pages/countries';
+import {CountryPage} from './pages/country';
 const App = () => {
 	return (
 		<>
@@ -8,8 +8,15 @@ const App = () => {
 				API Territorial Republica Dominicana
 			</h1>
 
-			<CountriesSection />
-			<ProvincesSection/>
+			{/* <CountriesSection /> */}
+
+			<Routes>
+				<Route path="/" index element={<CountriesPage />} />
+				<Route path="/:country" element={<CountryPage />} />
+				<Route path="/:country/:province" />
+				<Route path="/:country/:province/:municipality" />
+				<Route path="/:country/:province/:district" />
+			</Routes>
 		</>
 	);
 };

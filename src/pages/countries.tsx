@@ -1,8 +1,8 @@
+import Loading from '../components/Loading';
 import {getCountries} from '../helpers/getCountries';
 import {useFetch} from '../hooks/useFetch';
-import Loading from './Loading';
-
-export const CountriesSection = () => {
+import {Link} from 'react-router-dom';
+export const CountriesPage = () => {
 	const {data, isLoading} = useFetch(getCountries);
 
 	return (
@@ -14,7 +14,7 @@ export const CountriesSection = () => {
 				) : (
 					data?.map(({id, nombre}) => (
 						<li className="text-xs md:text-sm animate-fade" key={id}>
-							{nombre}
+							<Link to={`/${id}`}>{nombre}</Link>
 						</li>
 					))
 				)}

@@ -1,6 +1,6 @@
-import {FetchResult, PromiseFunction} from '../types';
+import {Country} from '../types';
 
-export const getCountries: PromiseFunction<[]> = async () => {
+export const getCountries = async () => {
 	try {
 		const url = 'https://api-territorial.apps.madlab.com.do/api/paises';
 		const resp = await fetch(url);
@@ -10,12 +10,7 @@ export const getCountries: PromiseFunction<[]> = async () => {
 		}
 		const {data} = await resp.json();
 
-		const countries: [] = data.map(({id, nombre}: FetchResult) => ({
-			id,
-			nombre,
-		}));
-
-		return countries;
+		return data as Country[];
 	} catch (error) {
 		console.error(error);
 		throw error;
