@@ -1,6 +1,10 @@
 import {Route, Routes} from 'react-router-dom';
 import {CountriesPage} from './pages/countries';
 import {CountryPage} from './pages/country';
+import {ProvincePage} from './pages/province';
+import {MunicipalityPage} from './pages/municipality';
+import {DistrictPage} from './pages/district';
+
 const App = () => {
 	return (
 		<>
@@ -8,14 +12,18 @@ const App = () => {
 				API Territorial Republica Dominicana
 			</h1>
 
-			{/* <CountriesSection /> */}
-
 			<Routes>
 				<Route path="/" index element={<CountriesPage />} />
 				<Route path="/:country" element={<CountryPage />} />
-				<Route path="/:country/:province" />
-				<Route path="/:country/:province/:municipality" />
-				<Route path="/:country/:province/:district" />
+				<Route path="/:country/:province" element={<ProvincePage />} />
+				<Route
+					path="/:country/:province/:municipality"
+					element={<MunicipalityPage />}
+				/>
+				<Route
+					path="/:country/:province/:district"
+					element={<DistrictPage />}
+				/>
 			</Routes>
 		</>
 	);

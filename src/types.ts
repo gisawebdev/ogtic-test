@@ -4,9 +4,10 @@ export type FetchResult = {
 };
 
 export type Province = {
-	id: number;
-	nombre: string;
-	pronvice_code: string;
+	id: number | undefined;
+	code: number | undefined;
+	nombre: string | undefined;
+	country_code: number | undefined;
 };
 export type Country = {
 	id: number;
@@ -19,7 +20,7 @@ export type Country = {
 export type Municipality = {
 	id: number;
 	nombre: string;
-	province_code: string;
+	province_code: number | undefined;
 	provincias?: Province[];
 };
 
